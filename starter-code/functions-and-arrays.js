@@ -1,6 +1,9 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first> second) {
+  return "The largest number is:" + first;
+} else {
+  return "the largest number is:" + second;
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +11,14 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
+  var x = "";
 
+  for (var i=0; i<= words.length; i++) {
+    if (words[i].length > x.length) {
+    x = words[i];
+    }
+  }
+  return x
 }
 
 var words = [
@@ -24,17 +34,26 @@ var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
-function sumArray (array) {
 
+var y= 0;
+
+function sumArray (array) {
+  array.forEach(function(w) {
+    y += w;
+  });
+  return y;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
 console.log(total);
 
+
 // Calculate the Average
 function averageNumbers (array) {
-
+  var sum = sumArray(array);
+  var sumAverage= sum / array.length;
+  return sumAverage;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -42,8 +61,19 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function averageWordLength (array) {
 
+function sumWordLength (array) {
+  var letterSum = 0;
+  for (var i=0; i<= array.length; i++){
+    letterSum += array[i].length;
+  }
+  return letterSum;
+}
+
+function averageWordLength (array) {
+  var sumWords = sumWordLength(array);
+  var wordAverage = sumWords / array.length;
+  return wordAverage;
 }
 
 var words = [
@@ -63,7 +93,13 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var
+  for (var i = 0; i <= array.length; i++) {
+    if (array.indexOf(array[i]) !== i ) {
+      words.splice (i, 1);
+    }
+  }
+  return words;
 }
 
 var words = [
@@ -84,8 +120,16 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
-}
+  var x;
+  for ( var i = 0; i <= wordsArray.length; i++) {
+    if (wordsArray[i] === word) {
+      x = true;
+      break;
+    } else {
+      x = false;
+    }
+  }
+  return x;
 
 var words = [
   "machine",
@@ -106,7 +150,14 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var x = 0;
+  for ( var i = 0; i <= words.length; i++) {
+    if (words[i] === word) {
+      x += 1;
+      break;
+    }
+  }
+  return x;
 }
 
 var words = [
